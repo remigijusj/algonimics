@@ -6,12 +6,14 @@ type
   Graph = Table[string, Nodes]
 
 
-proc loadGraph*(filename: string): Graph =
+proc loadGraph*(filename: string, ordered=false): Graph =
   let lines = readFile(filename).strip.splitLines
   for line in lines:
-    let a = line[0..1]
-    let b = line[3..4]
+    let parts = line.split('-', 2)
+    let a = parts[0]
+    let b = parts[1]
     discard result.hasKeyOrPut(a, [b].toHashSet)
-    discard result.hasKeyOrPut(b, [a].toHashSet)
     result[a].incl(b)
-    result[b].incl(a)
+    if not ordered:
+      discard result.hasKeyOrPut(b, [a].toHashSet)
+      result[b].incl(a)
