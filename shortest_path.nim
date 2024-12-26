@@ -41,10 +41,10 @@ func shortestDist(grid: Grid, start, finish: Node): int =
 when isMainModule:
   import support/grids
 
-  let grid1 = loadGrid("data/2024-16.txt")
+  let grid1 = loadGrid("data/grid1.txt")
   doAssert grid1.shortestDist(grid1['S'], grid1['E']) == 388
 
-  let grid2 = loadGrid("data/2024-20.txt")
+  let grid2 = loadGrid("data/grid2.txt")
   doAssert grid2.shortestDist(grid2['S'], grid2['E']) == 9376
 
   echo "OK"

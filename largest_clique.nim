@@ -36,6 +36,6 @@ when isMainModule:
   import support/graphs
 
   let maxClique = "cc,ff,fh,fr,ny,oa,pl,rg,uj,wd,xn,xs,zw".split(',').toHashSet # unique!
-  doAssert loadGraph("data/2024-23.txt").findLargestClique == maxClique
+  doAssert loadGraph("data/graph1.txt").findLargestClique == maxClique
 
   echo "OK"
